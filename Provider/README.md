@@ -65,6 +65,7 @@ Provider/
 ### 📊 Dashboard
 
 <p align="center">
+ <img src="./Screenshots/login.png" width="48%"/>
   <img src="./Screenshots/dashboard.png" width="48%" />
 </p>
 
@@ -81,7 +82,7 @@ Provider/
 ### ⚙️ Service Management
 
 <p align="center">
-  <img src="./Screenshots/services.png" width="48%" />
+  <img src="./Screenshots/service.png" width="48%" />
 </p>
 
 ---
