@@ -46,11 +46,10 @@ cd Sustainability-connect
 ### 2. Install dependencies
 
 npm install
-*(or use pip install -r requirements.txt if it's a Python project)*
 
 ### 3. Run the project
 
-npm start
+npm run dev
 
 ---
 
