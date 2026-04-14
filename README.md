@@ -26,14 +26,14 @@
 ---
 
 ## 📂 Project Structure
-
+```
 Sustainability-connect/
 │── sus-app/            # User Module
 │── Provider/           # Recycling Center Module
 │── Admin/              # Admin Module
 │── sus-app-backend/    # Business Logic.
 │── README.md
-
+```
 ---
 
 ## ⚙️ Installation & Setup
