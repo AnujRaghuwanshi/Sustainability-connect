@@ -1,6 +1,6 @@
-# Sustainability Connect - Admin Dashboard
+# ♻️ Sustainability Connect - Admin Dashboard
 
-Modern admin panel for managing eco-products, users, providers, pickups, and orders. Matches Provider UI theme.
+Modern **Admin Module** for managing eco-products, users, providers, pickups, and orders.
 
 ## 🚀 Quick Start
 
@@ -43,3 +43,10 @@ src/
 | `/admin/pickups` | Pickup status |
 | `/admin/orders` | Order tracking |
 
+---
+
+## Dashboard
+
+<p align="center">
+  <img src="./Screenshots/AdminDashboard.png" width="100%" />
+</p>
