@@ -62,7 +62,7 @@ Provider/
 
 ## 📸 Screenshots
 
-### 📊 Dashboard
+### 📊 Dashboard & Login
 
 <p align="center">
  <img src="./Screenshots/login.png" width="49%"/>
