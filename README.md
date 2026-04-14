@@ -1,6 +1,6 @@
 # 🌱 Sustainability Connect
 
-## 📌 Overview
+## 🌿 Overview 
 
 **Sustainability Connect** is a platform designed to bridge the gap between individuals, organizations, and sustainable initiatives. It promotes eco-friendly practices, collaboration, and awareness by connecting stakeholders working toward a greener future.
 
