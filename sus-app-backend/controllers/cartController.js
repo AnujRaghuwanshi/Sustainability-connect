@@ -10,15 +10,18 @@ exports.add = async (req, res) => {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
+
         const product = await Product.findById(productId);
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }
 
+
         let cart = await Cart.findOne({ userId });
         if (!cart) {
             cart = new Cart({ userId, items: [] });
         }
+
 
         const itemIndex = cart.items.findIndex(item => item.productId.toString() === productId);
         if (itemIndex > -1) {
@@ -29,6 +32,7 @@ exports.add = async (req, res) => {
 
         await cart.save();
         res.status(200).json({ message: 'Item added to cart' });
+        
     } catch (error) {
         console.error('Error adding item to cart:', error);
         res.status(500).json({ message: 'Error adding item to cart' });

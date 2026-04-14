@@ -10,7 +10,12 @@ const orderSchema = new Schema({
     price: { type: Number, required: true }
   }],
   totalAmount: { type: Number, required: true },
-  date: { type: Date, default: Date.now } // Add date field
+  date: { type: Date, default: Date.now }, // Add date field
+  status: {
+  type: String,
+  enum: ['Placed', 'Dispatched', 'Delivered'],
+  default: 'Placed'   // ✅ THIS LINE
+}
 });
 
 module.exports = mongoose.model('Order', orderSchema);

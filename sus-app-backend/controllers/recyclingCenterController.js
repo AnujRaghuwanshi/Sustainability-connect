@@ -11,6 +11,36 @@ exports.getAllRecyclingCenters = async (req, res) => {
 };
 
 
+// Controller to log in a recycling center with a plain-text password
+exports.loginRecyclingCenter = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).send({ success: false, message: 'Email and password are required' });
+        }
+
+        const center = await RecyclingCenter.findOne({ email });
+
+        if (!center) {
+            return res.status(404).send({ success: false, message: 'No recycling center found' });
+        }
+
+        if (center.password !== password) {
+            return res.status(401).send({ success: false, message: 'Incorrect password' });
+        }
+
+        const centerResponse = center.toObject();
+        delete centerResponse.password;
+
+        res.status(200).send({ success: true, recyclingCenter: centerResponse });
+    } catch (error) {
+        console.error('Error logging in recycling center:', error);
+        res.status(500).send({ success: false, message: 'Error logging in recycling center' });
+    }
+};
+
+
 
 // Controller to get a recycling center by centreID
 exports.getRecyclingCenterByCentreID = async (req, res) => {

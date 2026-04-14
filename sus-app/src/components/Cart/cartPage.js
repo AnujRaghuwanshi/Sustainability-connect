@@ -1,9 +1,11 @@
 import './Cart.css';
 import React, { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -95,7 +97,7 @@ const Cart = () => {
     }
 
     const options = {
-      key: "rzp_test_aV0I2cItt4TFIk",
+      key: "rzp_test_SbJjTbzS682PHj",
       amount: orderData.amount,
       currency: 'INR',
       name: "Sustainability Connect",
@@ -190,19 +192,18 @@ const Cart = () => {
                 <div className="cart-item-details">
                   <div className="cart-item-name">{item.productName}</div>
                   <div className="cart-item-quantity">Quantity: {item.quantity}</div>
-                  <div className="cart-item-price">Price: ${item.price} each</div>
+                  <div className="cart-item-price">Price: Rs {item.price} each</div>
                 </div>
                 <button className="remove-button" onClick={() => handleRemoveFromCart(item.productId)}>Remove</button>
               </li>
             ))}
           </ul>
           <div className="cart-total">
-            <h3>Total Amount: ${calculateTotalAmount()}</h3>
+            <h3>Total Amount: Rs {calculateTotalAmount()}</h3>
           </div>
           <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
         </>
       )}
-      <ToastContainer />
     </div>
   );
 };
@@ -420,5 +421,4 @@ export default Cart;
 // };
 
 // export default Cart;
-
 

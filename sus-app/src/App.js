@@ -17,7 +17,7 @@ import SignUp from "./Pages/Signup";
 import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
 import OtpVerification from './components/ForgetPassword/OtpVerification'
 import ChangePassword from './components/ForgetPassword/ChangePassword'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Success from './components/Sucess'
 import Cancel from './components/Cancel'
@@ -58,7 +58,7 @@ function App() {
 
 
       </Routes>
-      <ToastContainer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </Router>
   );
 }

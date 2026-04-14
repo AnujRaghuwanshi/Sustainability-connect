@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './MyOrder.css';
 
@@ -12,13 +12,13 @@ const MyOrders = () => {
       const user = JSON.parse(localStorage.getItem('user'));
 
       if (!user) {
-        toast.error('Please log in to view your orders');
         setLoading(false);
+        toast.error('Please log in to view your orders');
         return;
       }
 
       try {
-        const response = await fetch(`http://localhost:4000/orders/${user._id}`);
+        const response = await fetch(`http://localhost:4000/api/orders/${user._id}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -54,16 +54,15 @@ const MyOrders = () => {
                   <li key={item.productId._id}>
                     <div className="product-name">Product Name: {item.productId.name}</div>
                     <div className="quantity">Quantity: {item.quantity}</div>
-                    <div className="price">Price: ${item.price}</div>
+                    <div className="price">Price: Rs {item.price}</div>
                   </li>
                 ))}
               </ul>
-              <div className="total-amount">Total Amount: ${order.totalAmount}</div>
+              <div className="total-amount">Total Amount: Rs {order.totalAmount}</div>
             </li>
           ))}
         </ul>
       )}
-      <ToastContainer />
     </div>
   );
 };

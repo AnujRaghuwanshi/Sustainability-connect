@@ -12,8 +12,8 @@ const PopularProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/products');
-        // Limit to the first 8 products
-        setProducts(response.data.slice(0, 8));
+        // Limit to the first 4 products
+        setProducts(response.data.slice(0, 4));
         setLoading(false);
       } catch (err) {
         setError(err.message);

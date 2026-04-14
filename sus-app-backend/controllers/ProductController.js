@@ -23,11 +23,10 @@ exports.getAllProducts = async (req, res) => {
 
 
 
-
 exports.getProductsByCategory = async (req, res) => {
   try {
     const { categoryID } = req.params;
-    const products = await Product.find({ categoryID: categoryID });
+    const products = await Product.find({ categoryID: categoryID});
     res.status(200).json(products);
   } catch (err) {
     res.status(500).json({ error: err.message });

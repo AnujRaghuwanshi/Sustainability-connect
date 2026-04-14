@@ -11,7 +11,7 @@ const Item = ({ id, name, image_url, price, onClick }) => {
       <p>{name}</p>
       <div className="item-price">
         <div className="item-price-new">
-          ${price}
+          Rs{price}
         </div>
       </div>
     </div>

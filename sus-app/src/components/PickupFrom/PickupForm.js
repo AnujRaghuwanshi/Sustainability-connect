@@ -5,9 +5,11 @@ import PickupImage from '../../assets/project2.jpg';
 import { NotificationManager } from 'react-notifications';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import { useNavigate } from 'react-router-dom';
 
 const PickupForm = () => {
   const [centers, setCenters] = useState([]);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,6 +18,7 @@ const PickupForm = () => {
     pincode: '',
     contact: '',
     wasteType: '',
+    quantity: '',
     date: ''
   });
 
@@ -25,6 +28,15 @@ const PickupForm = () => {
       .then(response => response.json())
       .then(data => setCenters(data))
       .catch(error => console.error('Error fetching recycling centers:', error));
+
+    const loggedUser = JSON.parse(localStorage.getItem('user'));
+    if (loggedUser) {
+      setFormData(prev => ({
+        ...prev,
+        name: loggedUser.name || '',
+        email: loggedUser.email || ''
+      }));
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -34,6 +46,13 @@ const PickupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      NotificationManager.error('Please log in to schedule a pickup.');
+      navigate('/login');
+      return;
+    }
 
     fetch('http://localhost:4000/api/schedule-pickup', {
       method: 'POST',
@@ -61,6 +80,7 @@ const PickupForm = () => {
           pincode: '',
           contact: '',
           wasteType: '',
+          quantity: '',
           date: ''
         });
       } else {
@@ -111,7 +131,7 @@ const PickupForm = () => {
             <option value="" disabled>Select Recycling Center</option>
             {centers.length > 0 ? (
               centers.map(center => (
-                <option key={center._id} value={center.name}>{center.name}</option>
+                <option key={center._id} value={center._id}>{center.name}</option>
               ))
             ) : (
               <option value="" disabled>No centers available</option>
@@ -144,6 +164,14 @@ const PickupForm = () => {
               <option key={item.id} value={item.name}>{item.name}</option>
             ))}
           </select>
+          <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity (kg)"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+          />
           <input
             type="date"
             name="date"
