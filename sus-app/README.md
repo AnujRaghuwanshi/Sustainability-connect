@@ -102,4 +102,7 @@ The goal of this module is to:
 ---
 
 ## 📸 Screenshots
-<img src="./Screenshots/Login.png" width="45%" />
+<img src="./Screenshots/Login.png" width="40%" />
+<img src="./Screenshots/Signup.png" width="40%" />
+<img src="./Screenshots/Blogs.png" width="40%" />
+<img src="./Screenshots/WastePickup.png" width="40%" />
